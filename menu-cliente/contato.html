@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato</title>
+    <link rel="stylesheet" href=/estilos/contato.css>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="header"></div>
+        <div id="container-contato">
+            <h1 id="title-contato">Contate-nos</h1>
+            <form action="./php/contato.php" method="post" id="form-contato">
+                <table>
+                    <tr>
+                        <td><label class="form-itens">Nome:</label><br></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="nome" placeholder=" " required class="form-input"><br><br><span style="display: none;" name="nomeErr">* O campo nome é requerido.</span></td>
+                    </tr>
+                    <tr>    
+                        <td><br><label class="form-itens">Email:</label><br></td>
+                    </tr>
+                    <tr>    
+                        <td><input type="email" name="email" placeholder=" " required class="form-input"><br><br><span style="display: none;" name="emailErr">* O campo email é requerido.</span></td>
+                    </tr>
+                    <tr>    
+                        <td><br><label class="form-itens">Assunto:</label><br></td>
+                    </tr>
+                    <tr>    
+                        <td><input type="text" name="assunto" placeholder=" " required class="form-input"><br><br><span style="display: none;" name="assuntoErr">* O campo assunto é requerido.</span></td>
+                    </tr>
+                    <tr>    
+                        <td><br><label class="form-itens">Mensagem:</label><br></td>
+                    </tr>
+                    <tr>
+                        <td><textarea name="mensagem" cols="25" rows="7" class="form-input" id="form-msg"></textarea><span style="display:none;" name="mensagemErr">* O campo mensagem é requerido.</span></td>
+                    </tr>
+                    <tr>
+                        <td><span style="color: green; display: none;">Mensagem recebida</span></td>
+                    </tr>
+                    <tr>
+                        <td><input type="submit" value="Enviar" class="form-itens" id="btn-enviar"></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    <div id="footer"></div>
+</body>
+</html>
