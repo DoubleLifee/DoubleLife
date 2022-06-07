@@ -55,7 +55,7 @@ session_start();
             <!--Sessão Conteúdo-->
             <div class="section">
                <!--Primeira Sessão-->
-               <a href="controlarusuarios.php" class="section-single" id="agendamento-sc">
+               <a href="controlarusuarios.php?pag=1" class="section-single" id="agendamento-sc">
                   <i class="fa-solid fa-file-pen" id ="section_color"></i>
                   <h2 id="section_color">Controle de Usuários</h2>
 
