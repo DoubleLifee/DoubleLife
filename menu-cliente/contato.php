@@ -24,7 +24,7 @@ $sql = "INSERT INTO contato (nome, email, assunto, mensagem) VALUES ('$nome', '$
 
 if ($conn->query($sql) === TRUE) {
   //echo "Cadastro feito com sucesso!";
-  header("Location:/index.html");
+  header("Location:/index.php");
 } else {
   echo "Error: " . $sql . "<br>" . $conn->error;
 }

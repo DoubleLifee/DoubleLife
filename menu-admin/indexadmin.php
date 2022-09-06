@@ -38,10 +38,12 @@ session_start();
 
 
    <!--Header-->
+<div class = "header">
+        <!--Header-->
    <?php
         include "menu-admin.php";
    ?>
-
+        </div>
    <!--Corpo-->
    <body>
 
@@ -55,14 +57,14 @@ session_start();
             <!--Sessão Conteúdo-->
             <div class="section">
                <!--Primeira Sessão-->
-               <a href="controlarusuarios.php?pag=1" class="section-single" id="agendamento-sc">
+               <a href="controlarusuarios.php?pag=1"" class="section-single" id="agendamento-sc">
                   <i class="fa-solid fa-file-pen" id ="section_color"></i>
                   <h2 id="section_color">Controle de Usuários</h2>
 
                </a>
 
                <!--Segunda Sessão-->
-               <a href="controlaragenda.php" class="section-single" id="servicos-sc">
+               <a href="#" class="section-single" id="servicos-sc">
                   <i class="fa-solid fa-file-pen" id ="section_color"></i>
                   <h2 id="section_color">Controle de Agenda</h2>
 
@@ -74,13 +76,11 @@ session_start();
                   <h2 id="section_color">Controle de Serviços</h2>
 
                </a>
+               
             </div>
          </section>
          </main>
       
    </body>
 
-   <?php
-        include "footer-admin.php";
-   ?>
 </html>

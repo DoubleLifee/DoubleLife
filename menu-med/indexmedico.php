@@ -9,6 +9,7 @@
         <?php
             include "menu.php";
         ?>
+        <link rel="shortcut icon" href="/imagens/Logo_Cubo_para_empresa_de_Arquitetura_Design_e_Engenharia_2.png" type="image/x-icon">
         <link rel="stylesheet" href="/estilos/style.css">
     </head>
     <body>

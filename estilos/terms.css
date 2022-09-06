@@ -5,6 +5,11 @@
     padding: 0;
     box-sizing: border-box;
 }
+.disclaimer {
+    display:none;
+}
+
+
 /* Corpo */
 body {
 background-color: white;
@@ -68,22 +73,49 @@ margin-right : 25px;
     vertical-align: center;
 }
 /* Parte da esquerda dos terms */
-#termos-esquerda{
+#terms-a{
     text-decoration: none;
     float: right;
-    width: 50%;
+    width: 10%;
     background-size: cover;
     background-position: center center;
-    border-radius: 40px;
     color: black;
-    
+    padding-right: 20px;
+    border-right: 1px solid black;
 }
 /* Parte da direita dos terms */
-#termos-direita{ 
-      padding-right: 20px;
+#terms-b{ 
+    padding-right: 20px;
     float: left;
-    width: 50%;
+    width: 90%;
     background-size: cover;
     background-position: center center;
     border-radius: 40px;
+}
+
+@media screen and (max-width: 768px) {
+    
+    .terms {
+        font-size: 15px;
+        flex-wrap: wrap;
+    }
+    #terms-a{
+        text-decoration: none;
+        background-size: cover;
+        background-position: center center;
+        color: black;
+        border: none;
+        width: 50%;
+        padding-bottom: 50px;
+        border : 1px;
+        
+    }
+    /* Parte da direita dos terms */
+    
+    #terms-b{ 
+        width: 100%;
+        background-size: cover;
+        background-position: center center;
+        
+    }
 }

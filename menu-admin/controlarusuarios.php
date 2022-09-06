@@ -25,10 +25,10 @@ if($id!=1){
 $id--;
 
 //Cria o SQL com limites de página ordenado por id
-$sql = "SELECT * FROM usuario ORDER BY id LIMIT $id, $total";
+$sql = "SELECT * FROM usuarios ORDER BY id LIMIT $id, $total";
 
 //Conta a quantidade total de registros
-$sql1 = "SELECT count(*) as contagem FROM usuario";
+$sql1 = "SELECT count(*) as contagem FROM usuarios";
 
 //Executa o SQL
 $result = $conn->query($sql);
@@ -54,30 +54,25 @@ if($contagem%$total==0){
     <title>Controlar Usuários</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/estilos/tabelausuarios.css">
+    <link rel="stylesheet" href="/estilos/tabela.css">
     <link rel="stylesheet" href="/estilos/styleadmin.css">
-    
+    <style>
+        .disclaimer {
+            display:none;
+        }
+    </style>
     </head>
     <body>
         <div class = "header">
-        <?php
-        //Coloca o menu que está no arquivo
-        include 'menu-admin.php';
-        ?>
+        <!--Header-->
+   <?php
+        include "menu-admin.php";
+   ?>
         </div>
       
-        <div class="conteudo" style = "padding-top: 120px;">
-                <form method="post" action="pesquisa.php" id="form-pesquisa" style = "float: right">
-                    
-                    <div class = "Pesquisa">
-       
-                            <input placeholder="Buscar Usuários..." name="pesquisa" type="text">
-                            
-                        <button type="submit">Pesquisar</button>
-                    </div>
-                </form>
-        
-        <table style = "text-align: center">
+        <div class="conteudo" style = "padding-top: 120px; margin-left: 80px">
+                  
+        <table id = "Tabela-Usuarios">
             <tr>
                 <th>Id</th>
                 <th>Nome</th>
@@ -85,12 +80,13 @@ if($contagem%$total==0){
                 <th>Senha</th>
                 <th>CPF</th>
                 <th>CEP</th>
+                <th>Endereço</th>
                 <th>Telefone</th>
-                <th>Data de Nascimento</th>
-                <th>Tipo</th>
+                <th> Tipo </th>
+                <th> Status </th>
+                <th colspan = 3> Ações</th>
                 
-                <!-- <th colspan="2">Ações</td></tr> -->
-            				
+                
             	<?php
             	  while($row = $result->fetch_assoc()) {
             		echo "<tr><td>" .
@@ -100,29 +96,66 @@ if($contagem%$total==0){
             		$row["senha"] . "</td><td>" .
             		$row["cpf"] . "</td><td>" .
             		$row["cep"] . "</td><td>" .
+            		$row["endereco"] . "</td><td>" .
             		$row["telefone"] . "</td><td>" .
-            		$row["data_nascimento"] . "</td><td>" .
-            		$row["tipo"] . "</td>";
-            		
-            		//echo "<td><a href='usuarioeditarform.php?id=" . $row["Id"] . "'><img src='./imagens/editar.png' alt='Editar Usuário'></a></td><td><a href='usuarioexcluir.php?id=" . $row["Id"] . "'><img src='./imagens/excluir.png' alt='Excluir Usuário'></a></td></tr>";
+            		$row["tipo"] . "</td><td>" .
+            		$row["status"];
+            	    
+            	    echo "
+                	    <td><a href='usuarioeditarform.php?id=" . $row["Id"] . "'>
+                	    <img src='./imagens/editar.png' alt='Editar Usuário'>
+                	    </a>
+                	    </td>
+                	    <td><a href='usuariobloquear.php?id=" . $row["Id"] . "&status=" . $row["Status"] . "'>
+                	    <img src='./imagens/Block.png' alt='Bloquear Usuário'>
+                	    </a>
+                	    </td>
+                	    <td><a href='usuarioexcluir.php?id=" . $row["Id"] . "'>
+                	    <img src='./imagens/excluir.png' alt='Excluir Usuário'>
+                	    </a>
+                	    </td>
+                	    </tr>
+            	    ";
             	  }
             	?>
+            	
         				
         </table>
         </div>
-            <div class="pagination">
+           <div class="pagination" style="margin-left: 80px">
                 <?php for($i=1; $i <= $contagem; $i++) {
                         echo "<a href='controlarusuarios.php?pag=$i'>$i</a>";
                 } 
             	?>   
             </div>  
-                  <!-- <a href="usuariocadastrartela.php"><img src="./imagens/incluir.png" alt="Incluir Usuário"></a> -->
             </div> 
-            <?php
-                include "footer-admin.php";
-            ?>
+           
     </body>
+    <script>
+    
+    function myFunction() {
+      var input, filter, table, tr, td, i, txtValue;
+      input = document.getElementById("pesquisar");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("Tabela-Usuarios");
+      tr = table.getElementsByTagName("tr");
+      for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[1];
+        if (td) {
+          txtValue = td.textContent || td.innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
+        }       
+      }
+    }
+    
+</script>
+
 </html>
+
 <?php
 	//Se a consulta não tiver resultados  			
 	} else {
@@ -134,7 +167,7 @@ if($contagem%$total==0){
 	
 //Se o usuário não usou o formulário
 } else {
-    header('Location: index.html'); //Redireciona para o form
+    header('Location: index.php'); //Redireciona para o form
     exit; // Interrompe o Script
 }
 ?> 

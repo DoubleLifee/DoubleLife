@@ -5,9 +5,6 @@
     $password = "#ProjetoFinal123";
     $dbname = "id18647165_doublelifebd";
     
-    $email = $_POST["email"];
-    $senha = $_POST["senha"];
-    
     $conn = new mysqli($servername, $username, $password, $dbname);
 
     // Checando a Conexão

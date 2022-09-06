@@ -2,26 +2,31 @@
 session_start();
 
 if (isset($_POST['senha'])){
+require 'conexao.php';
 // Dados do Formulário
 $campoemail = $_POST["email"];
 $camposenha = $_POST["senha"];
+    
+//$senha = password_hash($camposenha, PASSWORD_BCRYPT);
 
 //Faz a conexão com o BD.
 require 'conexao.php';
 
 //Cria o SQL (consulte tudo na tabela usuarios com o email digitado no form)
-$sql = "SELECT * FROM usuario where email='$campoemail'";
+$sql = "SELECT * FROM usuarios where email='$campoemail'";
 
-//Executa o SQL
+//include '/log.php';
+
 $result = $conn->query($sql);
 
 // Cria uma matriz com o resultado da consulta
  $row = $result->fetch_assoc();
  
+ 
 	//Se a consulta tiver resultados
 	if ($result->num_rows > 0) {
 		
-			if($camposenha == $row["senha"]){
+			if(password_verify($camposenha, $row["senha"]) === TRUE){
 				$_SESSION['nome'] = $row["nome"];
 				$_SESSION['email'] = $row["email"];
 				$_SESSION['senha'] = $row["senha"];

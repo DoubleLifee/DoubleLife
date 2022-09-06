@@ -8,7 +8,10 @@
       <meta charset="UTF-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Anek+Malayalam:wght@300&display=swap" rel="stylesheet">
+<!--<link rel="stylesheet" href="SliderPhoto/estiloslide.css"> -->
 
       <!--Conteúdo-->
       <title>DoubleLife</title>
@@ -22,8 +25,9 @@
 
 
       <!--Folhas de Estilo-->
-      <link rel="stylesheet" href="/estilos/style.css">
-
+      
+      <link rel="stylesheet" href="./estilos/style.css">
+      <link rel="stylesheet" href="./estilos/header-footer.css">
 
       <!--Links Externos-->
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
@@ -31,7 +35,7 @@
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">
    </head>
-
+    <div class="loader"></div>
 
    <!--Header-->
    <?php
@@ -40,7 +44,7 @@
 
    <!--Corpo-->
    <body>
-
+      
       <!--Principal-->
       <main id="main-indexc">
 
@@ -49,28 +53,28 @@
             <!--Sessão Conteúdo-->
             <div class="section">
                <!--Primeira Sessão-->
-               <a href="/agendamento.php" class="section-single" id="agendamento-sc">
-                  <i class="fa-solid fa-house-chimney-medical" id="section_color"></i>
+               <a href="/menu-cliente/agendamento.php" class="section-single">
+                 <i class="fa-solid fa-house-chimney-medical" id="section_color"></i>
                   <h2 id="section_color">Agendamento</h2>
                   <p id="section_color">Agende sua consulta com um de nossos médicos.</p>
                </a>
 
                <!--Segunda Sessão-->
-               <a href="#" class="section-single" id="servicos-sc">
+               <a href="/menu-cliente/nossos-planos.php" class="section-single">
                   <i class="fa-solid fa-house-chimney-medical" id="section_color"></i>
                   <h2 id="section_color">Nossos Planos</h2>
                   <p id="section_color">Explore nossos planos e seguros DoubleLife.</p>
                </a>
 
                <!--Terceira Sessão-->
-               <a href="#" class="section-single" id="nossosPlanos-sc">
+               <a href="#" class="section-single">
                   <i class="fa-solid fa-house-chimney-medical" id="section_color"></i>
                   <h2 id="section_color">Serviços</h2>
                   <p id="section_color">Acesse nossos serviços médicos disponíveis.</p>
                </a>
 
                <!--Quarta Sessão-->
-               <a href="doacoes.php" class="section-single" id="sobreNos-sc">
+               <a href="doacoes.php" class="section-single">
                   <i class="fa-solid fa-house-chimney-medical" id="section_color"></i>
                   <h2 id="section_color">Doações</h2>
                   <p id="section_color">Conheça mais sobre os sistemas de doações DoubleLife.</p>
@@ -79,7 +83,7 @@
          </section>
          </main>
 
-        <section>
+       <section>
             <div class="container">
                <div class="doacoes">
                   <div id="doacoes-img">
@@ -97,26 +101,9 @@
                </div>
             </div>
          </section>
-
-
-         <section class="sobre">
-
-            <div class="center">
-
-               <div class="chamada-sobre">
-               <h2>Sobre a DoubleLife</h2>
-               <p>A DoubleLife é uma clínica médica instalada na Gávea, no Rio de Janeiro. Foi fundada em 1998, com o intuito de melhorar a saúde dos cariocas e ser um exemplo de modernidade e eficiência médica.</p>
-               </div>
-
-               <div class="conteudo-sobre">
-               <p>A DoubleLife foi criada com o intuito de ser um exemplo de agilidade e qualidade em serviços de saúde, por meio do cooperativismo médico e do conhecimento, para que o maior número de pessoas possa viver mais e melhor.</p>
-               <p>São 10 especialidades médicas com atendimento até para o mesmo dia em todas as nossas unidades. Oferecemos ampla gama de exames de baixa, média e alta complexidade, realizados por médicos experientes e com equipamentos de última geração.</p>
-            </div>
-         </section>
-
-      
-   </body>
-      <?php
+                        
+</body>
+<?php
         include "footer.php";
    ?>
 </html>

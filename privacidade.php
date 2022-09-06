@@ -1,8 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <style>
+        #main-indexc {
+            transition: 0.5s;   
+        }
+    </style>
+<link rel="shortcut icon" href="/imagens/Logo_Cubo_para_empresa_de_Arquitetura_Design_e_Engenharia_2.png" type="image/x-icon">
 <link rel="stylesheet" href="estilos/terms.css">
 <link rel="stylesheet" href="/estilos/style.css">
+<link rel="stylesheet" href="/estilos/header-footer.css">
 </head>
 
  <body>
@@ -21,7 +28,7 @@
         <section>
             <div class="container">
                <div class="terms">
-                  <div id="terms-direita">
+                  <div id="terms-a">
                      <a href="terms.php" style ="text-decoration: none; color: black"><h3 class="funcionar" id = "fromLeft" style="padding-bottom: 5px;">Termos de Uso</h3></a>
                      <br>
                      <a href="privacidade.php" style="text-decoration: none; color: black"><h3 style = "border-bottom: 1px solid black; padding-bottom: 5px;">Política de Privacidade</h3></a>
@@ -30,7 +37,7 @@
 
                             
 
-                  <div id="terms-esquerda">
+                  <div id="terms-b">
                      <h2>Política de Privacidade</h2>
                     <p>Para oferecermos os Produtos da Meta, precisamos tratar informações sobre você. Os tipos de informações coletadas dependem de como você usa nossos Produtos. Para saber mais sobre como acessar e excluir as informações que coletamos, acesse as configurações Facebook e as do Instagram.
 Algo que você e outras pessoas fazem e fornecem.
@@ -46,4 +53,19 @@ O que os outros fazem e informações que eles fornecem sobre você. Também rec
             </div>
          </section>
    </body>
+<script>
+
+window.onscroll = function() {
+    scrollFunction();
+}
+
+function scrollFunction() {
+      if (document.body.scrollTop > 250 || document.documentElement.scrollTop > 250) {
+        document.getElementById("main-indexc").style.opacity = "0.0";
+      } 
+      else {
+        document.getElementById("main-indexc").style.opacity = "1.0";
+      }
+}
+</script>
 </html>

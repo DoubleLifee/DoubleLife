@@ -1,7 +1,7 @@
 <?php
     require "conexaoadmin.php";
     
-    $sql = "SELECT * FROM usuario";
+    $sql = "SELECT * FROM usuarios";
     
     //Executa o SQL
     $result = $conn->query($sql);

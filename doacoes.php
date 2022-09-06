@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
    <head>
+       <link rel="shortcut icon" href="/imagens/Logo_Cubo_para_empresa_de_Arquitetura_Design_e_Engenharia_2.png" type="image/x-icon">
       <!--HTML 5-->
       <meta charset="UTF-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -39,7 +40,7 @@
    ?>
 
    <!--Corpo-->
-   <body>
+   <body class="doacao-body">
 
       <!--Principal-->
       <main id="main-indexc">
