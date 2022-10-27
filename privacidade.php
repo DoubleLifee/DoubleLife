@@ -19,8 +19,6 @@
    ?>
 
       <!--Principal-->
-      <main id="main-indexc">
-
          <section>
          </section>
          </main>

@@ -1,6 +1,7 @@
 <?php
-  
     session_start();
+    //include "../menu-cliente/trocastatuspagamento.php";
+    require "../acessocomum.php";
 
 ?>
 <!DOCTYPE html>
@@ -16,97 +17,104 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
     <link rel="stylesheet" href="../estilos/slider-medico.css">
     <link rel="shortcut icon" href="../imagens/Logo_Cubo_para_empresa_de_Arquitetura_Design_e_Engenharia_2.png" type="image/x-icon">
-    
 </head>
+
+<style>
+    .header{
+        position: absolute;
+    }
+    .swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal,                   .swiper-pagination-custom, .swiper-pagination-fraction {
+        bottom: 100px;
+        left: 0;
+        width: 100%;
+    }
+</style>
+
 <body>
+
  <?php
-    include"menu-cliente.php";
-    
+ 
+    include '../menu.php';
     require "conexao.php";
+    include "../verificastatusassinatura.php";
  ?>
     
     <div class="container-geral">
-        
-    <?php
- ?>
- <form action="agendamento.php" method="POST">
+ <form id="botaoenviar" action="agendamento.php" method="post">
     <select name="especialidadeSelecionada">
         <option value="" selected></option>
-        <option value="cardiologia">Cardiologia</option>
-        <option value="pediatria">Pediatria</option>
-        <option value="geriatria">Geriatria</option>
-        <option value="oncologia">Oncologia</option>
-        <option value="ortopedia">Ortopedia</option>
-        <option value="ginecologia">Ginecologia</option>
-        <option value="urologia">Urologia</option>
+        <option value="Cardiologia">Cardiologia</option>
+        <option value="Dermatologia">Dermatologia</option>
+        <option value="Pediatria">Pediatria</option>
+        <option value="Psiquiatria">Psiquiatria</option>
+        <option value="Geriatria">Geriatria</option>
+        <option value="Ginecologia">Ginecologia</option>
+        <option value="Oncologia">Oncologia</option>
+        <option value="Ortopedia">Ortopedia</option>        
+        <option value="Urologia">Urologia</option>
     </select>
     <input value="enviar" type="submit">
  </form>
- <div class='swiper mySwiper container'>
-<div class='swiper-wrapper content'>
-<?php
+
+    <section>
+    <div class='swiper mySwiper container'>
+    <div class='swiper-wrapper content'>
+    
+    <?php
     $especialidadeSelecionada = $_POST["especialidadeSelecionada"];
     
     if($especialidadeSelecionada == ""){
-        $sql = "SELECT * FROM medico";
+        $sql = "SELECT * FROM usuarios where tipo='m' ORDER BY nome";
     } else{
-        $sql = "SELECT * FROM medico where especialidade='$especialidadeSelecionada'";
+        $sql = "SELECT * FROM usuarios where especialidade='$especialidadeSelecionada'";
     }
     
     $result = $conn->query($sql);
-    $i = 0;
     
     if($result->num_rows > 0){
         while($row = $result->fetch_assoc()){
+            
+            $id = $row["id"];
             $nome = $row["nome"];
             $especialidade = $row["especialidade"];
-            $tempo = $row["tempo"];
-            $avaliacao = $row["avaliacao"];
-            $i++;
-               
-            echo"<div class='swiper-slide card'>
+                
+            echo"            
+            <div class='swiper-slide card'>
           <div class='card-content'>
             <div class='image'>
-              <img src='../imagens/img". $i .".jpg' alt=''>
-            </div>
-
-            <div class='media-icons'>
-              <i class='fab fa-facebook'></i>
-              <i class='fab fa-twitter'></i>
-              <i class='fab fa-github'></i>
+              <img src='" . $row ["pfp"] . "' alt=''>
             </div>
 
             <div class='name-profession'>
               <span class='name'>". $nome ."</span>
-              <span class='profession'>Web Developer</span>
-            </div>
-
-            <div class='rating'>
-              <i class='fas fa-star'></i>
-              <i class='fas fa-star'></i>
-              <i class='fas fa-star'></i>
-              <i class='far fa-star'></i>
-              <i class='far fa-star'></i>
+              <span class='profession'>".$especialidade."</span>
             </div>
 
             <div class='button'>
-              <button class='aboutMe'>About Me</button>
-              <button class='hireMe'>Hire Me</button>
+              <form method='post' action='eventoscontrolar.php?id_medico=". $id."'>
+                <input type='submit' class='aboutMe' value='Ver Agenda'>
+              </form>
             </div>
           </div>
-        </div>";
-        
-        $i++;
+        </div>
+        ";       
         }
     } else {
     		echo "<h1>Nenhum resultado foi encontrado.</h1>";
     } 
 ?>
-    </div>
-    </div>
-</div>
     
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+</section>
+
+<div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
+</div>
+</div>
+
+    <!-- Swiper JS -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
   <!-- Initialize Swiper -->
   <script>
@@ -126,12 +134,6 @@
       },
     });
   </script>
-    <script>
-        const btnCal = document.querySelector(".button");
-        
-        function callCalendar(){
-            document.location = '../eventoscontrolar.html';
-        }
-    </script>
+    
     
 </body>

@@ -9,11 +9,8 @@ $camposenha = $_POST["senha"];
     
 //$senha = password_hash($camposenha, PASSWORD_BCRYPT);
 
-//Faz a conexão com o BD.
-require 'conexao.php';
-
 //Cria o SQL (consulte tudo na tabela usuarios com o email digitado no form)
-$sql = "SELECT * FROM usuarios where email='$campoemail'";
+$sql = "SELECT * FROM usuarios where email='$campoemail' and status='ativo'";
 
 //include '/log.php';
 
@@ -31,27 +28,29 @@ $result = $conn->query($sql);
 				$_SESSION['email'] = $row["email"];
 				$_SESSION['senha'] = $row["senha"];
 				$_SESSION['tipo'] = $row["tipo"];
+				$_SESSION['id_usuario'] = $row["id"];
 
                 if(isset($_SESSION["email"]) && isset($_SESSION["senha"])){
                     if(isset($_SESSION["tipo"])){
                         if($_SESSION["tipo"]=="a"){
                             header("Location: /menu-admin/indexadmin.php");
-                        } elseif($_SESSION["tipo"]=="c"){
+                        } else if($_SESSION["tipo"]=="c"){
+                            include "../consultasconcluir.php";
                             header("Location: /index.php");
                         } else{
-                            header("Location: /menu-med/indexmedico.php");
+                            header("Location: /menu-med/indexmed.php");
                         }
                    }
                 }
 				exit;
 			}else{
-				echo 'Senha Inválida'; 
-				header( "refresh:5;url=/menu-cliente/cadastro-login.php" );
+				echo ' <div style = "font-style: Georgia" "> Senha Inválida </h1>'; 
+				header( "refresh:3;url=/menu-cliente/cadastro-login.php" );
 				exit;  
 			}
 	//Se a consulta não tiver resultados  			
 	} else {
-		header("'Location:/menu-cliente/cadastro-login.php'"); //Redireciona para o form
+		header("Location:/menu-cliente/cadastro-login.php"); //Redireciona para o form
         
 		exit; // Interrompe o Script
 	}

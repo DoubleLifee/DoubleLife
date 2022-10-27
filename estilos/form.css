@@ -168,7 +168,6 @@ input:-webkit-autofill
 /* second content*/
 
 .second-content {
-    position: absolute;
     display: flex;
 }
 .second-content .first-column {

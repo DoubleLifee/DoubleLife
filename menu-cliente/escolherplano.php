@@ -1,16 +1,25 @@
 <?php
 // Conexão com o BD  
-require_once 'conexao.php'; 
+require_once 'conexao.php';
+session_start();
+include '../acessocomum.php'
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
 <title>Selecione o seu plano</title>
 <meta charset="utf-8">
+<link rel="stylesheet" href="../estilos/nossos-planos.css">
+<link rel="stylesheet" href="../estilos/header-footer.css">
+<link rel="shortcut icon" href="/imagens/Logo_Cubo_para_empresa_de_Arquitetura_Design_e_Engenharia_2.png" type="image/x-icon">
 <!-- Stripe JavaScript library -->
 <script src="https://js.stripe.com/v3/"></script>
 </head>
-		
+
+<?php
+    include ('../menu.php')
+?>
+
 <section class="nossos-planos">
     <div class= "section wf-section">
             <h1 class= "titulo-principal">Escolha o seu Plano</h1>
@@ -25,7 +34,7 @@ require_once 'conexao.php';
 
         <div class= "planos">
             <h1 class="titulo-card"><?php echo $row['Nome_plano'] ?></h1>
-            <h2 class="titulo-card"><?php echo $row['Preco'] ?></h2>
+            <h2 class="titulo-card"><?php echo 'R$'.$row['Preco'].',00' ?></h2>
             <ul class="ul-card">
                 <li>✓ Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
                 <li>✓ Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
@@ -42,7 +51,7 @@ require_once 'conexao.php';
             ?>
         <div class="planos">
             <h1 class="titulo-card"><?php echo $row2['Nome_plano'] ?></h1>
-            <h2 class="titulo-card"><?php echo $row2['Preco'] ?></h2>
+            <h2 class="titulo-card"><?php echo 'R$'.$row2['Preco'].',00' ?></h2>
             <ul class="ul-card">
                 <li>✓ Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
                 <li>✓ Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
@@ -59,7 +68,7 @@ require_once 'conexao.php';
             ?>
         <div class="planos">
             <h1 class="titulo-card"><?php echo $row3['Nome_plano'] ?></h1>
-            <h2 class="titulo-card"><?php echo $row3['Preco'] ?></h2>
+            <h2 class="titulo-card"><?php echo 'R$'.$row3['Preco'].',00' ?></h2>
             <ul class="ul-card">
                 <li>✓ Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
                 <li>✓ Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
@@ -73,61 +82,10 @@ require_once 'conexao.php';
     </div>
 </section>
 
-<body class="App">
-    <h1>Pagamento</h1>
-    <div class="wrapper">
-        <!-- Display errors returned by checkout session -->
-        <div id="paymentResponse">
-        <?php 
-            $results = mysqli_query($conn,"SELECT * FROM plano WHERE ID_plano=1");
-            $row = mysqli_fetch_array($results,MYSQLI_ASSOC);
-        ?>
-            <div class="col__box">
-              <h5><?php echo $row['Nome_plano'] ?></h5>
-                <h6>Preço: <span> R$<?php echo $row['Preco'] ?> </span> </h6>
-            
-                <!-- Buy button -->
-                <div id="buynow">
-                    <button class="btn__default" id="payButton"> Assinar agora </button>
-                </div>
-            </div>
-            
-            <?php 
-                $results2 = mysqli_query($conn,"SELECT * FROM plano WHERE ID_plano=2");
-                $row2 = mysqli_fetch_array($results2,MYSQLI_ASSOC);
-            ?>
-            <div class="col__box">
-                <h5><?php echo $row2['Nome_plano'] ?></h5>
-                    <h6>Preço: <span> R$<?php echo $row2['Preco'] ?> </span> </h6>
-            
-                    <!-- Buy button -->
-                    <div id="buynow">
-                        <button class="btn__default" id="payButton2"> Assinar agora </button>
-                    </div>
-            </div>
-
-            <?php 
-                $results3 = mysqli_query($conn,"SELECT * FROM plano WHERE ID_plano=3");
-                $row3 = mysqli_fetch_array($results3,MYSQLI_ASSOC);
-            ?>
-            <div class="col__box">
-              <h5><?php echo $row3['Nome_plano'] ?></h5>
-                <h6>Preço: <span>R$<?php echo $row3['Preco'] ?> </span> </h6>
-            
-                <!-- Buy button -->
-                <div id="buynow">
-                    <button class="btn__default" id="payButton3"> Assinar agora </button>
-                </div>
-            </div>
-        </div>
-    </div>  
-
 <script>
 var buyBtn = document.getElementById('btn-1');
 var buyBtn2 = document.getElementById('btn-2');
 var buyBtn3 = document.getElementById('btn-3');
-
-var responseContainer = document.getElementById('paymentResponse'); 
 
 // Aciona o stripe_charge e passa dados
 var createCheckoutSession = function (stripe) {
@@ -221,7 +179,6 @@ buyBtn.addEventListener("click", function (evt) {
 });
 
 buyBtn2.addEventListener("click", function (evt) {
-    
     buyBtn2.disabled = true;
     buyBtn2.textContent = 'Processando...';
     createCheckoutSession2().then(function (data) {

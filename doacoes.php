@@ -24,6 +24,7 @@
 
       <!--Folhas de Estilo-->
       <link rel="stylesheet" href="/estilos/style.css">
+      <link rel="stylesheet" href="/estilos/doacoes.css">
 
 
       <!--Links Externos-->
@@ -51,10 +52,10 @@
             <div class="doacoes-section">
                <!--Primeira Sessão-->
                <div id = "doacoes-container">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non purus nec libero mattis viverra sed ac quam. Quisque lacinia, erat at cursus ullamcorper, ipsum enim porta risus, eleifend fermentum mauris velit accumsan sapien. Ut vehicula quam nibh, non euismod metus tincidunt vel. Nulla eu pretium nisi. Donec dignissim massa vitae augue mollis, eu scelerisque purus tempor. Sed tristique gravida nibh finibus consectetur. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc eu nulla lobortis, tristique ipsum et, consequat arcu. Mauris vitae dignissim ipsum. Mauris leo odio, semper id ultricies eu, placerat eget ligula. Vivamus odio neque, pharetra in mi sollicitudin, feugiat lobortis arcu. Vivamus tincidunt vel lectus vestibulum imperdiet. Vestibulum maximus quam sed erat luctus pharetra. Nullam sollicitudin ipsum metus, quis pulvinar ante placerat eget..
+                  <p>Ajude-nos a investir em hospitais e outras clínicas parceiras na luta contra o câncer infantil, você só precisa doar uma quantia, independente de qual seja, isso já seria de grande ajuda para nós! Você pode doar por aqui mesmo no site, só clicar no botão abaixo! Seu dinheiro pode nos ajudar a salvar vidas!
                       <br> <br>
                       <div class ="doar">  
-                      <a href="#" class="btn-menu"> Doe </a>
+                      <a href="https://donate.stripe.com/test_6oE3eeedydAl5FKaEE" class="btn-menu"> Doe </a>
                       </div>
                   </p>
                </div>

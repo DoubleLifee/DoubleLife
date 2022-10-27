@@ -5,10 +5,10 @@ session_start();
 //require 'acessocomum.php';
 
 //Faz a conexão com o BD.
-require 'conexao2.php';
+require 'conexao.php';
 
 //Cria o SQL (consulte tudo da tabela usuarios)
-$sql = "SELECT * FROM usuarios WHERE id =" .  $_SESSION["id"];
+$sql = "SELECT * FROM usuarios WHERE id =" . $_SESSION["id_usuario"];
 
 //Executa o SQL
 $result = $conn->query($sql);
@@ -22,78 +22,19 @@ $result = $conn->query($sql);
 <html>
 <head>
     <link rel="stylesheet" href="/estilos/style.css">
+    <link rel="shortcut icon" href="/imagens/Logo_Cubo_para_empresa_de_Arquitetura_Design_e_Engenharia_2.png" type="image/x-icon">
     <link rel="stylesheet" href="/estilos/header-footer.css">
-    <style type="text/css">
-        *{
-            margin: 0;
-            padding: 0;
-            text-align: center;
-        }
-        
-        #container-form{
-            position: absolute;
-            width: 350px;
-            min-height: 380px;
-            max-height: 65%;
-            text-align: center;
-            padding: 20px 5px;
-            color: #024873;
-            font-size: 20px;
-            margin-top: 80px;
-            margin-left: 40%;
-            border: 2px solid #024873;
-            border-radius: 10px;
-            box-shadow: 0 6px 10px 0 rgb(0 0 0 / 70%);
-        }
-        .form-conta{
-            width: 250px;
-            height: 30px;
-            border-radius: 10px;
-            border-color: #024873;
-            background-color: #ecf0f1;
-        }
-        .form-conta-label{
-            background-color: white;
-            font-weight: bold;
-            color:#2b4965;
-            font-family: 'Open Sans', sans-serif;;
-        }
-        .form-conta-buttom{
-            font-weight: bold;
-            width: 250px;
-            height: 30px;
-            border-radius: 10px;
-            border-color: #024873;
-            background-color: #2b4965;
-            color: white;
-        }
-        .form-conta-buttom:hover{
-            font-weight: bold;
-            color: black;
-            background-color: rgb(240,240,240);
-            transition: 0.4s;
-        }
-    </style>
+ 
 </head>
+<?php
+    require 'menu.php';
+?>
 <body>
     
-    <?php
-    include "menu.php";
-    ?>
-    
-    <div id="container-form">
-        <i class="fa-solid fa-person"></i>
-        <form method="post" action="#">
-            <label class="form-conta-label">Nome:</label><br><br>
-            <input class="form-conta" type="text" value="<?php echo $row["nome"]; ?>" name="nome"><br><br>
-            <label class="form-conta-label">Email:</label><br><br>
-            <input class="form-conta" type="email" value="<?php echo $row["email"]; ?>" name="email"><br><br>
-            <label class="form-conta-label">CPF:</label><br><br>
-            <input class="form-conta" type="text" value="<?php echo $row["cpf"]; ?>" name="cpf"><br><br>
-            <input type="submit" class="form-conta-buttom" value="Salvar" name="btn_enviar">
-        </form>
+    <div id = "options">
+        <a href = "dadosconta.php"> Informações da conta </a>
+        <a href = "consultas.php?pag=1"> Informações de consultas </a>
     </div>
-    
 </body>
 </html>
 <?php

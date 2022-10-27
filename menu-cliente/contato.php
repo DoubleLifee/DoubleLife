@@ -1,9 +1,9 @@
 <?php
-// Dados da Conexão
-$servername = "localhost";
-$username = "id18647165_adfgil";
-$password = "#ProjetoFinal123";
-$dbname = "id18647165_doublelifebd";
+// Parâmetros para criar a conexão
+$servername = "sql110.epizy.com";
+$username = "epiz_32653955";
+$password = "C62XZOj4p9yLSPW";
+$dbname = "epiz_32653955_planos";
 
 // Leitura do Formulário
 $nome = $_POST["nome"];

@@ -214,6 +214,7 @@ input:-webkit-autofill
 
 .sign-in-js .second-content .second-column {
     z-index: 11;
+    height: 100%;
 }
 .sign-in-js .second-content .first-column {
     z-index: 13;

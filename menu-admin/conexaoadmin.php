@@ -1,14 +1,15 @@
 <?php
-    // Dados da Conexão
-    $servername = "localhost";
-    $username = "id18647165_adfgil";
-    $password = "#ProjetoFinal123";
-    $dbname = "id18647165_doublelifebd";
-    
-    $conn = new mysqli($servername, $username, $password, $dbname);
+// Parâmetros para criar a conexão
+$servername = "sql110.epizy.com";
+$username = "epiz_32653955";
+$password = "C62XZOj4p9yLSPW";
+$dbname = "epiz_32653955_planos";
 
-    // Checando a Conexão
-    if ($conn->connect_error) {
-      die("Connection failed: " . $conn->connect_error);
-    }
+// Criando a conexão
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Checando a conexão
+if ($conn->connect_error) {
+  die("Você se deu mal: " . $conn->connect_error);
+}
 ?>

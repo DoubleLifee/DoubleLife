@@ -6,9 +6,11 @@ use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
 //No futuro, quando o gerenciador composer for usado, basta chamar o autoload. 
-require './phpmailer/src/Exception.php';
-require './phpmailer/src/PHPMailer.php';
-require './phpmailer/src/SMTP.php';
+require '../phpmailer/src/Exception.php';
+require '../phpmailer/src/PHPMailer.php';
+require '../phpmailer/src/SMTP.php';
+
+function enviaremail($nomedestinatario, $emaildestinatario, $assunto, $texto){
 
 //Cria instância da Classe PHPMailer
 $mail = new PHPMailer(true);
@@ -27,10 +29,10 @@ try {
     $mail->SMTPAuth   = true; 
     
     //Username. No caso do Gmail, é o endereço de email completo.
-    $mail->Username   = 'XXXXXXXX@XXXXXXXX';
+    $mail->Username   = 'doublelifeiserj@gmail.com';
     
     //O Gmail exige uma Senha de aplicativo. A sua senha normal não vai funcionar.
-    $mail->Password   = 'XXXXXXXXXX';
+    $mail->Password   = 'iknmaindltpbuelk';
     
     //Ativa a encriptação.
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
@@ -39,10 +41,10 @@ try {
     $mail->Port       = 465;
 
     //Remetente
-    $mail->setFrom('XXXXXXXX@XXXXXXXX', 'Seu Nome');
+    $mail->setFrom('doublelifeiserj@gmail.com', 'DoubleLife');
     
     //Destinatário
-    $mail->addAddress($campoemail, $camponome);
+    $mail->addAddress($emaildestinatario, $nomedestinatario);
 
     //Conteúdo do Email
     
@@ -50,17 +52,18 @@ try {
     $mail->isHTML(true);
     
     //Assunto
-    $mail->Subject = 'Validar Email';
+    $mail->Subject = $assunto;
     
     //Corpo do Email
-    $texto = "Clique <a href='aulahtmlcss.000webhostapp.com/usuariovalidaremail.php?id=" . $campoemail . "&validador=" . $validador . "'>aqui</a>.";
     $mail->Body    = $texto;
 
     //Envio
     $mail->send();
     
-    echo 'Messagem enviada';
+   // echo 'Messagem enviada';
 } catch (Exception $e) {
     echo "Messagem não foi enviada. Mailer Error: {$mail->ErrorInfo}";
+}
+
 }
 ?>

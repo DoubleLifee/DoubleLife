@@ -14,10 +14,10 @@ function getPDF() {
 
 //Captura o conteúdo da DIV content
   doc.fromHTML($('.content').get(0), 15, 15, {
-    'width': 170, 
+    'width': 70, 
     'elementHandlers': specialElementHandlers
   });
 
 //Gera o PDF com o nome especificado.
-  doc.save('Generated.pdf');
+  doc.save('DL_PDF.pdf');
 }

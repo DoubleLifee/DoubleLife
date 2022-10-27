@@ -102,10 +102,9 @@ transform: scaleX(1);
 }
 /*Botãozinhos que aparecem com opções semelhantes a do cabeçalho mas estão no body*/
 .section{
-    margin-left: 50%;
-    transform: translateX(-38%);
+    margin-left: 48%;
+    transform: translateX(-20%);
     display: flex;
-    flex-wrap: wrap;
     margin-top: 200px;
 }
 /*Imagem principal / Parte principal do site */
@@ -133,7 +132,7 @@ transform: scaleX(1);
     background-color: white;
     width: 23%;
     padding : 3vh;
-    margin: 0 1% 0 0.7%;
+    margin-right: 40px;
     border-radius: 10px;
     text-align: center;
     text-decoration: none;
@@ -379,7 +378,7 @@ section.sobre{
     font-size: 19px;
     margin-left: 50%;
     margin-top: 80px;
-    transform: translateX(-50%);
+    transform: translateX(-44%);
 }
 
 
@@ -405,8 +404,7 @@ section.sobre{
     }
     .section-single{
         width: 100%;
-        margin-right: 20px ;
-        margin-bottom: 15px;
+        margin-left: 200px;
     }
     .conteudo-sobre{
         width: 100%;

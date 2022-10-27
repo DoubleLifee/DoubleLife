@@ -17,30 +17,98 @@
     border: none;
     cursor: pointer;
     margin-top:-2px;
-    margin-left:-40px;
+    
     padding: 7px 19px;
     border-radius: 10px;
     transition: 0.2s;
+     margin-left: 420px;
     }
+    .nome {
+            background-color: rgb(0, 110, 255);
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top:-2px;
+            padding: 7px 19px;
+            border-radius: 10px;
+            transition: 0.2s;
+            margin-left: 420px;
+            position: absolute;
+        }
+        .nome:hover {
+            background-color: rgb(8, 37, 76);
+            border-radius: 10px 10px 0px 0px;
+        }
+
+        .nome:hover ~ .drop{
+          
+            display: flex;
+            flex-direction: column;
+        }
+        .drop {
+            margin-left: 7px;
+            margin-top : 37px;
+            position: absolute;
+            display: none;
+            background-color: rgb(0, 110, 255);
+            border-radius: 0px 10px 10px 10px;
+        }
+        .drop a {
+            border-radius: 10px;
+            padding: 10px;
+      
+        }
+        .drop a:hover {
+            background-color: rgb(8, 37, 76);
+            
+        }
+        .drop:hover {
+            display: flex;
+            flex-direction: column;
+        }
+        .dropd ~ .drop {
+            display: flex;
+            flex-direction: column;
+        }
+        .dropd {
+            margin-top: -21px;
+            margin-right: 50px;
+        }
+        .dropd:hover .nome {
+            background-color: rgb(8, 37, 76);
+            border-radius: 10px 10px 0px 0px;
+        }
     .mainmenubtn:hover {
         background-color: rgb(8, 37, 76);
         }
     .dropdown {
         position: absolute;
-        display: inline-block;
-        margin-left: 0px;
-        margin-top: -5px;
     }
     .dropdown-child {
+        border-radius: 10px;
+        margin-left: 380px;
         display: none;
         background-color: rgb(0, 110, 255);
-        min-width: 200px;
+    
     }
     .dropdown-child a {
+         border-radius: 10px;
+        transition: 0.5s;
         color: white;
         padding: 20px;
+        margin: 10px;
         text-decoration: none;
         display: block;
+        opacity: 0.5;
+    }
+    .dropdown-child a:hover {
+        background-color: #024873; 
+        opacity: 1;
+        
+    }
+    .dropdown-child a:hover ~ .mainmenubtn {
+        background-color: rgb(8, 37, 76);
+        border-radius: 10px;
     }
     .dropdown:hover .dropdown-child {
         display: block;
@@ -70,14 +138,14 @@
   text-decoration: none;
   font-size: 10px;
   font-size: 14px;
-  margin: 5px;
+  margin: 8px;
 }
 
 #menu ul{
     padding: 20px;
 }
 #itens {
-    padding: 7px 12px 7px 12px;
+    padding: 7px 7px 7px 7px;
     transition: 0.5s;
     opacity: 0.75;
     
@@ -154,7 +222,7 @@
     bottom: -15px;
     width: 40px;
     height: 40PX;
-    background: #040305;
+    background: ;
     border-radius: 5px;
     transform: rotate(45deg);
     opacity: 0;
@@ -193,6 +261,7 @@
 
 .caixa.active::before{
     opacity:1;
+    background-color: #024873;
 }
 
 .togglebutton:hover::before {
@@ -218,6 +287,8 @@
 .caixa .conteudo h2 {
     padding-bottom: 10px;
     text-transform: uppercase;
+    color: #fff;
+    font-family: Helvetica;
 }
 
 .caixa .conteudo p {
@@ -265,7 +336,7 @@
     bottom: -15px;
     width: 40px;
     height: 40PX;
-    background: #040305;
+    background: #024873;
     border-radius: 5px;
     transform: rotate(45deg);
     opacity: 0;
@@ -304,6 +375,7 @@
 
 .caixa-2.active::before{
     opacity:1;
+    background-color:#024873;
 }
 
 .togglebutton-2:hover::before {
@@ -327,6 +399,8 @@
 .caixa-2 .conteudo-2 h2 {
     padding-bottom: 10px;
     text-transform: uppercase;
+    font-family: Helvetica;
+    color: #fff;
 }
 
 .caixa-2 .conteudo-2 p {

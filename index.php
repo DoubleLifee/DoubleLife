@@ -1,5 +1,10 @@
 <?php
     session_start();
+    
+    require "conexao2.php";
+
+    include "assinaturasexpirar.php";
+    
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -53,21 +58,21 @@
             <!--Sessão Conteúdo-->
             <div class="section">
                <!--Primeira Sessão-->
-               <a href="/menu-cliente/agendamento.php" class="section-single">
-                 <i class="fa-solid fa-house-chimney-medical" id="section_color"></i>
+               <a href="./menu-cliente/agendamento.php" class="section-single">
+                 <i class="fa-regular fa-calendar-days" id="section_color"></i>
                   <h2 id="section_color">Agendamento</h2>
                   <p id="section_color">Agende sua consulta com um de nossos médicos.</p>
                </a>
 
                <!--Segunda Sessão-->
-               <a href="/menu-cliente/nossos-planos.php" class="section-single">
-                  <i class="fa-solid fa-house-chimney-medical" id="section_color"></i>
+               <a href="/menu-cliente/escolherplano.php" class="section-single">
+                  <i class="fa-sharp fa-solid fa-newspaper" id="section_color"></i>
                   <h2 id="section_color">Nossos Planos</h2>
                   <p id="section_color">Explore nossos planos e seguros DoubleLife.</p>
                </a>
 
                <!--Terceira Sessão-->
-               <a href="#" class="section-single">
+               <a href="services.php" class="section-single">
                   <i class="fa-solid fa-house-chimney-medical" id="section_color"></i>
                   <h2 id="section_color">Serviços</h2>
                   <p id="section_color">Acesse nossos serviços médicos disponíveis.</p>
@@ -75,7 +80,7 @@
 
                <!--Quarta Sessão-->
                <a href="doacoes.php" class="section-single">
-                  <i class="fa-solid fa-house-chimney-medical" id="section_color"></i>
+                  <i class="fa-solid fa-money-check-dollar" id="section_color"></i>
                   <h2 id="section_color">Doações</h2>
                   <p id="section_color">Conheça mais sobre os sistemas de doações DoubleLife.</p>
                </a>
@@ -103,6 +108,7 @@
          </section>
                         
 </body>
+
 <?php
         include "footer.php";
    ?>
