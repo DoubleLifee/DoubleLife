@@ -12,11 +12,8 @@ $sql = "DELETE FROM usuarios WHERE id=$campoid";
 
 //Executa o sql e faz tratamento de erro.
 if ($conn->query($sql) === TRUE) {
-  echo "Usuário apagado";
   
-  include 'log.php';
-  
-   header('Location: .php?pag=1'); //Redireciona para o controle  
+   header('Location: ../menu-admin/controlarusuarios.php?pag=1'); //Redireciona para o controle  
 } else {
   echo "Erro: " . $conn->error;
 }

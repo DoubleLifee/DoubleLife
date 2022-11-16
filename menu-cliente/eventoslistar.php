@@ -1,7 +1,6 @@
 <?php
 //Faz a conexão com o BD.
 require 'conexao.php';
-require "../acessocomum.php";
 
 //Cria o SQL
 //$sql1 = "SELECT * FROM medico where id=". $id_med;

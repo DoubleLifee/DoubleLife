@@ -18,11 +18,8 @@ $sql = "UPDATE usuarios SET Status='ativo' WHERE id=$campoid";
 }
 
 //Executa o sql e faz tratamento de erro.
-if ($conn->query($sql) === TRUE) {
-  echo "Usuário bloqueado";
-  
-  
-   header('Location: usuarioscontrolar.php?pag=1'); //Redireciona para o controle  
+if ($conn->query($sql) === TRUE) { 
+   header('Location: ../menu-admin/controlarusuarios.php?pag=1'); //Redireciona para o controle  
 } else {
   echo "Erro: " . $conn->error;
 }

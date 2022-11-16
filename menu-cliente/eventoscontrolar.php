@@ -1,6 +1,5 @@
 <?php
     session_start();
-    require "../acessocomum.php";
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
